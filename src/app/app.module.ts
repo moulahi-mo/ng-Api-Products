@@ -13,12 +13,45 @@ import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { AuthComponent } from './components/auth/auth.component';
+
 import { LoaderComponent } from './components/shared/loader/loader.component';
 import { ErrorComponent } from './components/shared/error/error.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { UsersComponent } from './components/users/users.component';
+import { ProductsAddComponent } from './components/products-add/products-add.component';
+import { ReviewsAddComponent } from './components/reviews-add/reviews-add.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { AuthService } from './services/auth.service';
+import { ProductsService } from './services/products.service';
+import { UsersService } from './services/users.service';
+import { ReviewsService } from './services/reviews.service';
+import { FilterComponent } from './components/shared/filter/filter.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, NavbarComponent, SidebarComponent, AuthComponent, LoaderComponent, ErrorComponent],
+  declarations: [
+    AppComponent,
+    FooterComponent,
+    NavbarComponent,
+    SidebarComponent,
+    LoaderComponent,
+    ErrorComponent,
+    NotFoundComponent,
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    ProductsComponent,
+    ReviewsComponent,
+    UsersComponent,
+    ProductsAddComponent,
+    ReviewsAddComponent,
+    BannerComponent,
+    FilterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +62,7 @@ import { ErrorComponent } from './components/shared/error/error.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService, ProductsService, UsersService, ReviewsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

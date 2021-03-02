@@ -3,11 +3,15 @@ mat-sidenav {
   height: 100%;
 }
 
-mat-sidenav-container,
+/* mat-sidenav-container,
 .wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+
+mat-sidenav-container {
+  height: 100%;
 }

@@ -1,8 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav #sideNav position="end" mode="over" class="pl-3" opened>
+  <mat-sidenav #sideNav position="end" mode="slide" class="pl-3">
+    <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
+    <app-navbar></app-navbar>
     <div class="container wrapper">
+      <router-outlet></router-outlet>
       <app-footer class="mx-auto"></app-footer>
     </div>
   </mat-sidenav-content>
