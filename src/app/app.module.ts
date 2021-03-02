@@ -31,6 +31,7 @@ import { ProductsService } from './services/products.service';
 import { UsersService } from './services/users.service';
 import { ReviewsService } from './services/reviews.service';
 import { FilterComponent } from './components/shared/filter/filter.component';
+import { NoDataComponent } from './components/shared/no-data/no-data.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FilterComponent } from './components/shared/filter/filter.component';
     ReviewsAddComponent,
     BannerComponent,
     FilterComponent,
+    NoDataComponent,
   ],
   imports: [
     BrowserModule,

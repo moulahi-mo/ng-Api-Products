@@ -7,30 +7,36 @@
 
   <ul class="mt-3 d-flex justify-content-around">
     <li class="nav-item">
-      <mat-icon
-        color="primary"
-        size="large"
-        class="mx-3"
+      <button
+        mat-fab
+        color=""
         routerLink="/"
         routerLinkActive="mat-warn"
         [routerLinkActiveOptions]="{ exact: true }"
-        >home</mat-icon
       >
+        <mat-icon color="primary">home</mat-icon>
+      </button>
     </li>
-    <li class="mx-3 mr-5 d-none d-sm-flex">
-      <mat-icon
-        color="primary"
-        size="large"
-        class="mx-4"
+    <li class="mx-3 mr-5 d-none d-sm-flex nav-item">
+      <button
+        mat-fab
+        color=""
         routerLink="/login"
         routerLinkActive="mat-warn"
         [routerLinkActiveOptions]="{ exact: true }"
-        >person</mat-icon
       >
-      <mat-icon color="primary" size="large" class="mx-4">logout</mat-icon>
+        <mat-icon color="primary" size="large">person</mat-icon>
+      </button>
     </li>
-    <li class="nav-item ml-5 ml-sm-0">
-      <mat-icon color="accent" class="mr-5 d-sm-none">menu</mat-icon>
+    <li class="ml-5 mr-5 nav-item d-none d-sm-flex">
+      <button mat-fab color="">
+        <mat-icon color="" size="large">logout</mat-icon>
+      </button>
+    </li>
+    <li class="nav-item ml-5 ml-sm-0 mr-5 d-sm-none">
+      <button mat-fab color="">
+        <mat-icon color="accent" class="">menu</mat-icon>
+      </button>
     </li>
   </ul>
 </nav>

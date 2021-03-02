@@ -1,1 +1,6 @@
-<p>filter works!</p>
+<aside>
+  <mat-form-field color="accent" class="w-100">
+    <mat-label>Filter..</mat-label>
+    <input (keyup)="onFilter(search.value)" matInput #search />
+  </mat-form-field>
+</aside>

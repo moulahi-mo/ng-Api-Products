@@ -12,6 +12,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
   constructor(private serviceProducts: ProductsService) {}
+  isError: string = null;
+  isLoading: boolean = false;
+  products: Product[] = [];
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource<Product>();
@@ -27,9 +31,20 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
 
   public fetchAllProducts() {
-    this.serviceProducts.GetAllProducts().subscribe((data: any) => {
-      console.log(data.data);
-      this.dataSource.data = data.data;
-    });
+    this.isLoading = true;
+    this.serviceProducts.GetAllProducts().subscribe(
+      (data: any) => {
+        console.log(data.data);
+        this.dataSource.data = data.data;
+        this.products = data.data;
+        this.isLoading = false;
+      },
+      (err) => (this.isError = err)
+    );
+  }
+
+  public onFilter(term: string) {
+    console.log(term);
+    this.dataSource.filter = term;
   }
 }

@@ -1,0 +1,13 @@
+<section class="my-5">
+  <div
+    *ngIf="!isClosed"
+    class="alert alert-warning alert-dismissible fade show d-flex justify-content-between mx-auto my-5"
+    role="alert"
+  >
+    <strong>No Data</strong> founds in our database.
+    <button type="button" (click)="isClosed = !isClosed">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+  </div>
+</section>
