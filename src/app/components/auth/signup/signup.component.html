@@ -1,1 +1,163 @@
-<p>signup works!</p>
+<section class="my-5 d-flex flex-column">
+  <div class="container">
+    <h1 class="display-4 text-info text-center">Sign up</h1>
+    <div class="row">
+      <div class="col-12 col-md-8 col-xl-6 mx-auto">
+        <!-- ! is loading-->
+        <app-loader *ngIf="isLoading && !isError"></app-loader>
+        <!-- ! is error-->
+
+        <app-error *ngIf="isError" [message]="isError"></app-error>
+        <!-- ! card login -->
+        <mat-card
+          *ngIf="!isLoading"
+          class="d-flex flex-column justify-content-around"
+        >
+          <form
+            #form="ngForm"
+            (ngSubmit)="onSubmit(form)"
+            class="d-flex flex-column justify-content-around h-75"
+          >
+            <!-- todo name -->
+
+            <mat-form-field class="mt-3" color="accent">
+              <mat-label>Name</mat-label>
+              <input
+                required
+                minlength="3"
+                [ngClass]="{
+                  invalid: name.invalid && (name.touched || name.dirty),
+                  valid: name.valid
+                }"
+                matInput
+                name="name"
+                ngModel
+                #name="ngModel"
+              />
+              <mat-error
+                *ngIf="
+                  name.invalid &&
+                  (name.touched || name.dirty) &&
+                  !name.errors?.minlenght
+                "
+              >
+                name is required
+              </mat-error>
+              <mat-error *ngIf="name.errors?.minlenght">
+                name must be 3 chars min
+              </mat-error>
+              <mat-hint align="end"> {{ name.value?.length }}/50 </mat-hint>
+            </mat-form-field>
+
+            <!-- todo email -->
+
+            <mat-form-field
+              hintLabel="email must be correct"
+              color="accent"
+              class=""
+            >
+              <mat-label>Email</mat-label>
+              <input
+                required
+                minlength="5"
+                [ngClass]="{
+                  invalid: email.invalid && (email.touched || email.dirty),
+                  valid: email.valid
+                }"
+                matInput
+                pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
+                name="email"
+                ngModel
+                #email="ngModel"
+              />
+              <mat-error
+                *ngIf="
+                  email.invalid &&
+                  (email.touched || email.dirty) &&
+                  !email.errors?.minlength
+                "
+              >
+                please enter a valid email
+              </mat-error>
+              <mat-error *ngIf="email.errors?.pattern">
+                email format is wrong
+              </mat-error>
+              <mat-hint align="end"> {{ email.value?.length }}/50 </mat-hint>
+            </mat-form-field>
+            <!-- todo password -->
+            <mat-form-field
+              hintLabel="password must be 8 chars min"
+              class="my-3"
+              color="accent"
+            >
+              <mat-label>Password</mat-label>
+              <input
+                required
+                minlength="8"
+                [ngClass]="{
+                  invalid:
+                    password.invalid && (password.touched || password.dirty),
+                  valid: password.valid
+                }"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}"
+                matInput
+                name="password"
+                ngModel
+                #password="ngModel"
+              />
+              <mat-error
+                *ngIf="
+                  password.invalid &&
+                  (password.touched || password.dirty) &&
+                  !password.errors?.pattern
+                "
+              >
+                please enter a valid password
+              </mat-error>
+              <mat-error *ngIf="password.errors?.pattern">
+                password format is wrong
+              </mat-error>
+              <mat-hint align="end"> {{ password.value?.length }}/30 </mat-hint>
+            </mat-form-field>
+            <!-- todo role -->
+
+            <mat-form-field
+              hintLabel="select a role"
+              class="mb-3"
+              color="accent"
+            >
+              <mat-label>Role</mat-label>
+              <mat-select
+                required
+                [ngClass]="{
+                  invalid: role.invalid && (role.touched || role.dirty),
+                  valid: role.valid
+                }"
+                name="role"
+                ngModel
+                #role="ngModel"
+              >
+                <mat-option disabled value="admin">Admin</mat-option>
+                <mat-option value="publisher">Publisher</mat-option>
+                <mat-option value="user">User</mat-option>
+              </mat-select>
+              <mat-error *ngIf="role.invalid && (role.touched || role.dirty)">
+                name is required
+              </mat-error>
+            </mat-form-field>
+
+            <!-- todo button -->
+            <button
+              [disabled]="!form.valid"
+              mat-raised-button
+              color="warn"
+              class="d-block mx-auto"
+            >
+              Signup
+            </button>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
