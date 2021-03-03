@@ -4,6 +4,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/models/interfaces';
 import { ProductsService } from 'src/app/services/products.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -11,7 +16,13 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
-  constructor(private serviceProducts: ProductsService) {}
+  constructor(
+    private serviceProducts: ProductsService,
+    private snackBar: MatSnackBar
+  ) {}
+
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   isError: string = null;
   isLoading: boolean = false;
   products: Product[] = [];
@@ -46,5 +57,18 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   public onFilter(term: string) {
     console.log(term);
     this.dataSource.filter = term;
+  }
+
+  public onRemove(product: Product) {
+    if (confirm(`Are you sure to want to delete ${product.name}  ?`)) {
+      this.serviceProducts.deleteProductById(product._id).subscribe((res) => {
+        console.log(res);
+        this.snackBar.open(`${product.name} is successfully deleted`, 'undo', {
+          duration: 4000,
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
+      });
+    }
   }
 }

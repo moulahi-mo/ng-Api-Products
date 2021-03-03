@@ -65,6 +65,7 @@
             >create</mat-icon
           >
           <mat-icon
+            (click)="onRemove(element)"
             color="warn"
             matTooltip="Delete Product"
             matTooltipPosition="above"
@@ -84,7 +85,11 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    showFirstLastButtons
+    class="d-flex justify-content-center"
+  ></mat-paginator>
 </section>
 <!-- ! if no data in db-->
 <app-no-data *ngIf="users.length === 0 && !isLoading"></app-no-data>
