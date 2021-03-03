@@ -1,1 +1,84 @@
-<p>reviews works!</p>
+<!-- *is loading-->
+<app-loader *ngIf="isLoading && !isError"></app-loader>
+<!-- *is error-->
+<app-error *ngIf="isError" [message]="isError"></app-error>
+<!-- *Tabs-->
+<section class="my-5" *ngIf="!isError">
+  <button
+    [routerLink]="['/reviews', 'add']"
+    mat-mini-fab
+    color="warn"
+    matTooltip="Add new Review"
+    matTooltipPosition="left"
+    class="ml-auto d-block"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+  <app-filter class="mt-5" (filtre)="onFilter($event)"></app-filter>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+      <td mat-cell *matCellDef="let element">
+        <h6 class="text-primary">
+          {{ element.title | titlecase }}
+        </h6>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Review</th>
+      <td mat-cell *matCellDef="let element">
+        <p class="text-break text-light">
+          {{ element.text | titlecase }}
+        </p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell *matCellDef="let element">
+        <p class="text-muted">
+          {{ element.createdAt | date: "medium" }}
+        </p>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-raised-button color="primary" class="d-block mx-auto">
+          Action
+        </button>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="d-flex justify-content-around">
+          <mat-icon
+            color="accent"
+            matTooltip="Edit Product"
+            matTooltipPosition="left"
+            >create</mat-icon
+          >
+          <mat-icon
+            color="warn"
+            matTooltip="Delete Product"
+            matTooltipPosition="above"
+            >delete_forever</mat-icon
+          >
+          <mat-icon
+            [routerLink]="['/reviews', element._id]"
+            color="primary"
+            matTooltip="Product Details"
+            matTooltipPosition="right"
+            >loupe</mat-icon
+          >
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+</section>
+<!-- ! if no data in db-->
+<app-no-data *ngIf="reviews.length === 0 && !isLoading"></app-no-data>

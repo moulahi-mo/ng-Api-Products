@@ -1,0 +1,51 @@
+<section class="my-5 d-flex flex-column">
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
+
+  <h2 class="display-4 text-center text-secondary">Product Details</h2>
+  <mat-icon class="mr-auto h1 mb-5" color="accent" routerLink="/"
+    >arrow_back</mat-icon
+  >
+  <mat-card *ngIf="product && !isError">
+    <mat-list class="h-100">
+      <mat-list-item role="listitem">
+        <h4 class="text-center mx-auto d-block text-danger">
+          {{ product.name }}
+        </h4>
+      </mat-list-item>
+      <mat-list-item role="listitem" class="text-info"
+        >Price : {{ product.price | currency: "EUR" }}</mat-list-item
+      >
+      <mat-list-item role="listitem" class="text-muted"
+        >Date : {{ product.createdAt | date: "short" }}</mat-list-item
+      >
+      <mat-list-item role="listitem"
+        >Category : {{ product.category }}</mat-list-item
+      >
+      <mat-list-item role="listitem">
+        <p class="text-truncate d-md-none d-inline-block">
+          {{ product.description }}
+        </p>
+        <p class="d-none d-md-block">
+          {{ product.description }}
+        </p>
+      </mat-list-item>
+
+      <mat-list-item role="listitem">
+        Stock : {{ product.stock }}</mat-list-item
+      >
+
+      <mat-list-item role="listitem"
+        >Available : {{ product.sale }}</mat-list-item
+      >
+      <mat-list-item role="listitem"
+        >Discount : {{ product.discount }}</mat-list-item
+      >
+      <mat-list-item role="listitem">Brand : {{ product.brand }}</mat-list-item>
+    </mat-list>
+  </mat-card>
+  <!-- * if no data in db-->
+  <app-no-data *ngIf="!product && !isLoading"></app-no-data>
+</section>

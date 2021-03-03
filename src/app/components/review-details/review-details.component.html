@@ -1,0 +1,43 @@
+<section class="my-5 d-flex flex-column">
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
+
+  <h2 class="display-4 text-center text-secondary">Review Details</h2>
+  <mat-icon class="mr-auto h1 mb-5" color="accent" routerLink="/"
+    >arrow_back</mat-icon
+  >
+  <mat-card *ngIf="review && !isError">
+    <mat-list class="h-100">
+      <mat-list-item role="listitem" class="my-5">
+        <h4 class="text-center mx-auto d-block text-danger">
+          {{ review.title | titlecase }}
+        </h4>
+      </mat-list-item>
+
+      <mat-list-item role="listitem" class="text-info my-5">
+        For Product : {{ product?.name }}</mat-list-item
+      >
+
+      <mat-list-item role="listitem" class="text-info my-5"
+        >Created By : {{ user?.name ? user.name : "Guest" }}</mat-list-item
+      >
+
+      <mat-list-item role="listitem" class="text-muted my-5">
+        <p class="text-truncate d-md-none d-inline-block">
+          {{ review.text }}
+        </p>
+        <p class="d-none d-md-block">
+          {{ review.text }}
+        </p>
+      </mat-list-item>
+
+      <mat-list-item role="listitem" class="text-info my-5"
+        >Created Date : {{ review.createdAt | date: "short" }}</mat-list-item
+      >
+    </mat-list>
+  </mat-card>
+  <!-- * if no data in db-->
+  <app-no-data *ngIf="!review && !isLoading"></app-no-data>
+</section>

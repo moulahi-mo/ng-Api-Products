@@ -4,15 +4,19 @@
 <app-error *ngIf="isError" [message]="isError"></app-error>
 <!-- *Tabs-->
 <section class="my-5" *ngIf="!isError">
+  <button
+    [routerLink]="['/products', 'add']"
+    mat-mini-fab
+    color="warn"
+    matTooltip="Add new Product"
+    matTooltipPosition="left"
+    class="ml-auto d-block"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
   <app-filter class="mt-5" (filtre)="onFilter($event)"></app-filter>
 
-  <table
-    mat-table
-    [dataSource]="dataSource"
-    class="mat-elevation-z8"
-    matSort
-    *ngIf="products.length >= 1 && !isLoading"
-  >
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
@@ -56,6 +60,7 @@
             >delete_forever</mat-icon
           >
           <mat-icon
+            [routerLink]="['/products', element._id]"
             color="primary"
             matTooltip="Product Details"
             matTooltipPosition="right"
@@ -70,5 +75,5 @@
   </table>
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
 </section>
-<!-- ! if no data in db-->
-<app-no-data *ngIf="products.length === 0"></app-no-data>
+<!-- * if no data in db-->
+<app-no-data *ngIf="products.length === 0 && !isLoading"></app-no-data>

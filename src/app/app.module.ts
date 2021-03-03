@@ -32,6 +32,9 @@ import { UsersService } from './services/users.service';
 import { ReviewsService } from './services/reviews.service';
 import { FilterComponent } from './components/shared/filter/filter.component';
 import { NoDataComponent } from './components/shared/no-data/no-data.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ReviewDetailsComponent } from './components/review-details/review-details.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { NoDataComponent } from './components/shared/no-data/no-data.component';
     BannerComponent,
     FilterComponent,
     NoDataComponent,
+    ProductDetailsComponent,
+    ReviewDetailsComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
