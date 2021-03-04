@@ -1,6 +1,38 @@
-# Products API
+
+## Contact
+
+> Portfolio : https://moulahi.netlify.app/ 
+
+> Email : moulahi.mo@gmail.com
+
+> Phone : +212630385315
+
+
+
+# Products API overview
 
 > Backend API for products application, APi for Products E-commerce
+
+![alt text](https://imgur.com/uSJOdtb.png)
+
+# Demo
+
+> The API is live at  [API Products](https://moulahi-api-products.herokuapp.com/) 
+
+> Extensive documentation with examples :
+>   [Documentation](https://documenter.getpostman.com/view/13825305/TWDfCsdr)   
+
+For documentation choose an envirenement for the api docs
+
+> " APi Products prod "
+
+```
+-Version: 1.0.0
+
+-License: MIT
+
+-Author: Moulahi Mohammed
+```
 
 # Usage
 
@@ -25,24 +57,6 @@ To seed the database with users, products, users and reviews with data from the 
 
 > node seeder -i
 
-# Demo
-
-> The API is live at https://moulahi-api-products.herokuapp.com/
-
-> Extensive documentation with examples :
-> https://documenter.getpostman.com/view/13825305/TWDfCsdr
-
-For documentation choose an envirenement for the api docs
-
-> " APi Products prod "
-
-```
--Version: 1.0.0
-
--License: MIT
-
--Author: Moulahi Mohammed
-```
 
 # Details
 
