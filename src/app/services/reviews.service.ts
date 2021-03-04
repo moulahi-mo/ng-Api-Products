@@ -36,9 +36,9 @@ export class ReviewsService {
       .pipe(catchError(this.hundleErrors));
   }
 
-  public EditReviewById(review: Review): Observable<Review> {
+  public EditReviewById(id: string, review: Review): Observable<Review> {
     return this.http
-      .put<Review>(environment.apiUrl + `reviews/${review._id}`, review)
+      .put<Review>(environment.apiUrl + `reviews/${id}`, review)
       .pipe(catchError(this.hundleErrors));
   }
 

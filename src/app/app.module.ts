@@ -37,6 +37,8 @@ import { ReviewDetailsComponent } from './components/review-details/review-detai
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { LocalStorageService } from './services/local-storage.service';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { LocalStorageService } from './services/local-storage.service';
     ProductDetailsComponent,
     ReviewDetailsComponent,
     UserDetailsComponent,
+    UserEditComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <section class="my-5">
   <section class="my-5 d-flex flex-column">
     <h2 class="display-4 text-center text-secondary">
-      {{ !isEdit ? "Add New" : "Edit" }} Review
+      {{ !isEdit ? "Add New" : "Edit" }} User
     </h2>
     <mat-icon class="mr-auto h1 mb-4" color="accent" routerLink="/"
       >arrow_back</mat-icon
@@ -17,13 +17,22 @@
             >
               <!-- *item -->
               <mat-form-field color="warn">
-                <mat-label>Title</mat-label>
-                <input matInput formControlName="title" />
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
               </mat-form-field>
               <!-- *item -->
               <mat-form-field color="warn">
-                <mat-label>Review</mat-label>
-                <textarea matInput formControlName="text"> </textarea>
+                <mat-label>Email</mat-label>
+                <textarea matInput formControlName="email"> </textarea>
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Role</mat-label>
+                <mat-select matInput formControlName="role">
+                  <mat-option disabled value="admin">Admin</mat-option>
+                  <mat-option value="publisher">Publisher</mat-option>
+                  <mat-option value="user">User</mat-option>
+                </mat-select>
               </mat-form-field>
 
               <!-- * button-->

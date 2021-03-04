@@ -29,9 +29,9 @@ export class UsersService {
       .pipe(catchError(this.hundleErrors));
   }
 
-  public EditUserById(user: User): Observable<User> {
+  public EditUserById(id: string, user: User): Observable<User> {
     return this.http
-      .put<User>(environment.apiUrl + `users/${user._id}`, user)
+      .put<User>(environment.apiUrl + `users/${id}`, user)
       .pipe(catchError(this.hundleErrors));
   }
 

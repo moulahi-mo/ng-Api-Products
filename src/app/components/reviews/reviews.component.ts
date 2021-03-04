@@ -61,7 +61,7 @@ export class ReviewsComponent implements OnInit, AfterViewInit {
 
   public onRemove(review: Review) {
     if (confirm('Are you sure ?')) {
-      this.serviceReviews.deleteReviewById(review._id).subscribe(() => {
+      this.serviceReviews.deleteReviewById(review.product).subscribe(() => {
         this.snackBar.open(`${review.title} is successfully deleted`, 'undo', {
           duration: 4000,
           horizontalPosition: this.horizontalPosition,

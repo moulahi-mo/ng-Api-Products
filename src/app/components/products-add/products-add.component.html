@@ -1,1 +1,97 @@
-<p>products-add works!</p>
+<section class="my-5">
+  <section class="my-5 d-flex flex-column">
+    <h2 class="display-4 text-center text-secondary">
+      {{ !isEdit ? "Add New" : "Edit" }} Product
+    </h2>
+    <mat-icon class="mr-auto h1 mb-4" color="accent" routerLink="/"
+      >arrow_back</mat-icon
+    >
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+          <mat-card *ngIf="!isLoading">
+            <form
+              [formGroup]="formAdd"
+              (ngSubmit)="onSubmit()"
+              class="d-flex flex-column"
+            >
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Brand</mat-label>
+                <input matInput formControlName="brand" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Category</mat-label>
+                <input matInput formControlName="category" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"> </textarea>
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Discount</mat-label>
+                <input matInput formControlName="discount" type="number" />
+              </mat-form-field>
+              <!-- *item -->
+
+              <mat-slide-toggle formControlName="newPro"
+                >NewPro</mat-slide-toggle
+              >
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>ID</mat-label>
+                <input matInput formControlName="id" type="number" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>ShortDetails</mat-label>
+                <textarea matInput formControlName="shortDetails"> </textarea>
+              </mat-form-field>
+
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" type="number" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-slide-toggle formControlName="sale">Sale</mat-slide-toggle>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>SalePrice</mat-label>
+                <input matInput formControlName="salePrice" type="number" />
+              </mat-form-field>
+              <!-- *item -->
+              <mat-form-field color="warn">
+                <mat-label>Stock</mat-label>
+                <input matInput formControlName="stock" type="number" />
+              </mat-form-field>
+
+              <!-- * button-->
+              <button
+                [disabled]="formAdd.invalid"
+                mat-flat-button
+                color="warn"
+                class="d-block mx-auto"
+              >
+                {{ !isEdit ? "Create" : "Edit" }}
+              </button>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
+</section>

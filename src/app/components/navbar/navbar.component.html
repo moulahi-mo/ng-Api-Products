@@ -22,6 +22,8 @@
     </li>
     <li *ngIf="!isAuthNew" class="mx-3 mr-5 d-none d-sm-flex nav-item">
       <button
+        matTooltip="Login / Signup"
+        matTooltipPosition="below"
         mat-fab
         color=""
         routerLink="/login"
@@ -32,10 +34,30 @@
       </button>
     </li>
     <li *ngIf="isAuthNew" class="ml-5 mr-5 nav-item d-none d-sm-flex">
-      <button (click)="onLogout()" mat-fab color="">
+      <button
+        matTooltip="Logout"
+        matTooltipPosition="below"
+        (click)="onLogout()"
+        mat-fab
+        color=""
+      >
         <mat-icon color="" size="large">logout</mat-icon>
       </button>
     </li>
+    <li *ngIf="isAuthNew" class="ml-5 mr-5 nav-item d-none d-sm-flex">
+      <button
+        matTooltip="Profile"
+        matTooltipPosition="below"
+        routerLinkActive="mat-warn"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/profile"
+        mat-fab
+        color=""
+      >
+        <mat-icon color="" size="large">switch_account</mat-icon>
+      </button>
+    </li>
+
     <li class="nav-item ml-5 d-flex mr-5 d-sm-none">
       <button (click)="onMenuClicked()" mat-fab color="">
         <mat-icon color="accent" class="">menu</mat-icon>
