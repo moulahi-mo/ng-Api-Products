@@ -20,7 +20,7 @@
         <mat-icon color="primary">home</mat-icon>
       </button>
     </li>
-    <li class="mx-3 mr-5 d-none d-sm-flex nav-item">
+    <li *ngIf="!isAuthNew" class="mx-3 mr-5 d-none d-sm-flex nav-item">
       <button
         mat-fab
         color=""
@@ -31,8 +31,8 @@
         <mat-icon color="primary" size="large">person</mat-icon>
       </button>
     </li>
-    <li class="ml-5 mr-5 nav-item d-none d-sm-flex">
-      <button mat-fab color="">
+    <li *ngIf="isAuthNew" class="ml-5 mr-5 nav-item d-none d-sm-flex">
+      <button (click)="onLogout()" mat-fab color="">
         <mat-icon color="" size="large">logout</mat-icon>
       </button>
     </li>

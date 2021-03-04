@@ -1,9 +1,9 @@
 <mat-sidenav-container>
   <mat-sidenav #sideNav position="end" mode="slide" class="pl-3">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [isAuth]="isAuth" [sidebar]="sideNav"></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-navbar (onMenu)="sideNav.toggle()"></app-navbar>
+    <app-navbar (onMenu)="sideNav.toggle()" [isAuthNew]="isAuth"></app-navbar>
     <div class="container wrapper">
       <div [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
