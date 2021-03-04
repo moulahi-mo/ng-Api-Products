@@ -17,14 +17,18 @@
 
 # Demo
 
-> The API is live at  [API Products](https://moulahi-api-products.herokuapp.com/) 
+> The API is live at  [API Products](https://ng-moulahi-api-products.netlify.app/) 
 
 > Extensive documentation with examples :
 >   [Documentation](https://documenter.getpostman.com/view/13825305/TWDfCsdr)   
 
-For documentation choose an envirenement for the api docs
+  - Then choose an envirenement for the API docs :
 
-> " APi Products prod "
+      `APi Products prod `
+      
+      OR 
+      
+      `APi Products Dev `
 
 ```
 -Version: 1.0.0
