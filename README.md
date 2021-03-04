@@ -9,9 +9,12 @@
 
 
 
-# Products API overview
+# A new API for e-commerce Products overview
 
-> Backend API for products application, APi for Products E-commerce
+> Backend : using  #Nodejs ,#Express js and #MongoDb , to build the new API for e-commerce Products .
+
+> Frontend : Angular framework to explore the REST API features .
+
 
 ![alt text](https://imgur.com/uSJOdtb.png)
 
