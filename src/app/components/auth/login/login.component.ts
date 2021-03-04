@@ -8,10 +8,12 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { slideInAnimation } from 'src/app/shared/slideInAnimation.animation';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  animations: [slideInAnimation],
 })
 export class LoginComponent implements OnInit {
   isError: string = null;

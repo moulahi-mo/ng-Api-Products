@@ -18,7 +18,7 @@ import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, data: { animation: 'HomePage' } },
   { path: 'signup', component: SignupComponent },
   { path: 'products/add', component: ProductsAddComponent },
   { path: 'products/:id', component: ProductDetailsComponent },

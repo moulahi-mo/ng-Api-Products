@@ -3,9 +3,11 @@
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-navbar></app-navbar>
+    <app-navbar (onMenu)="sideNav.toggle()"></app-navbar>
     <div class="container wrapper">
-      <router-outlet></router-outlet>
+      <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
       <app-footer class="mx-auto"></app-footer>
     </div>
   </mat-sidenav-content>

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,8 @@ import { NoDataComponent } from './components/shared/no-data/no-data.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ReviewDetailsComponent } from './components/review-details/review-details.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { AuthInterceptor } from './shared/auth.interceptor';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,14 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService, ProductsService, UsersService, ReviewsService],
+  providers: [
+    AuthService,
+    ProductsService,
+    UsersService,
+    ReviewsService,
+    LocalStorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

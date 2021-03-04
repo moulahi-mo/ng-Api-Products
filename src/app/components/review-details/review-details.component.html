@@ -1,11 +1,10 @@
 <section class="my-5 d-flex flex-column">
-  <!-- *is loading-->
-  <app-loader *ngIf="isLoading && !isError"></app-loader>
-  <!-- *is error-->
-  <app-error *ngIf="isError" [message]="isError"></app-error>
-
   <h2 class="display-4 text-center text-secondary">Review Details</h2>
-  <mat-icon class="mr-auto h1 mb-5" color="accent" routerLink="/"
+  <mat-icon
+    *ngIf="!isLoading"
+    class="mr-auto h1 mb-5"
+    color="accent"
+    routerLink="/"
     >arrow_back</mat-icon
   >
   <mat-card *ngIf="review && !isError">
@@ -25,10 +24,10 @@
       >
 
       <mat-list-item role="listitem" class="text-muted my-5">
-        <p class="text-truncate d-md-none d-inline-block">
+        <p class="text-truncate d-md-none d-inline-block blo">
           {{ review.text }}
         </p>
-        <p class="d-none d-md-block">
+        <p class="d-none d-md-block blo">
           {{ review.text }}
         </p>
       </mat-list-item>
@@ -38,6 +37,10 @@
       >
     </mat-list>
   </mat-card>
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
   <!-- * if no data in db-->
   <app-no-data *ngIf="!review && !isLoading"></app-no-data>
 </section>

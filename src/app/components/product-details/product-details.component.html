@@ -1,11 +1,10 @@
 <section class="my-5 d-flex flex-column">
-  <!-- *is loading-->
-  <app-loader *ngIf="isLoading && !isError"></app-loader>
-  <!-- *is error-->
-  <app-error *ngIf="isError" [message]="isError"></app-error>
-
   <h2 class="display-4 text-center text-secondary">Product Details</h2>
-  <mat-icon class="mr-auto h1 mb-5" color="accent" routerLink="/"
+  <mat-icon
+    *ngIf="!isLoading"
+    class="mr-auto h1 mb-5"
+    color="accent"
+    routerLink="/"
     >arrow_back</mat-icon
   >
   <mat-card *ngIf="product && !isError">
@@ -21,14 +20,14 @@
       <mat-list-item role="listitem" class="text-muted"
         >Date : {{ product.createdAt | date: "short" }}</mat-list-item
       >
-      <mat-list-item role="listitem"
-        >Category : {{ product.category }}</mat-list-item
-      >
       <mat-list-item role="listitem">
-        <p class="text-truncate d-md-none d-inline-block">
+        <h6 class="mb-5">Category : {{ product.category }}</h6>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <p class="text-truncate d-md-none d-inline-block blo">
           {{ product.description }}
         </p>
-        <p class="d-none d-md-block">
+        <p class="d-none d-md-block blo">
           {{ product.description }}
         </p>
       </mat-list-item>
@@ -46,6 +45,10 @@
       <mat-list-item role="listitem">Brand : {{ product.brand }}</mat-list-item>
     </mat-list>
   </mat-card>
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
   <!-- * if no data in db-->
   <app-no-data *ngIf="!product && !isLoading"></app-no-data>
 </section>

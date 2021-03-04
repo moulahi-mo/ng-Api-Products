@@ -1,12 +1,15 @@
 <nav
-  class="navbar navbar-dark bg-transparent d-flex flex-column flex-sm-row justify-content-between"
+  class="navbar navbar-dark bg-transparent d-flex justify-content-sm-between w-100"
 >
-  <a class="navbar-brand text-success h1 text-center d-inline-block ml-5"
-    >API Products</a
+  <h5
+    class="text-success text-sm-center text-left mx-auto mt-3 d-inline-block ml-5"
   >
+    API Products
+    <mat-icon color="accent">alt_route</mat-icon>
+  </h5>
 
-  <ul class="mt-3 d-flex justify-content-around">
-    <li class="nav-item">
+  <ul class="mt-3 d-flex justify-content-around mx-auto">
+    <li class="nav-item d-none d-sm-flex">
       <button
         mat-fab
         color=""
@@ -33,8 +36,8 @@
         <mat-icon color="" size="large">logout</mat-icon>
       </button>
     </li>
-    <li class="nav-item ml-5 ml-sm-0 mr-5 d-sm-none">
-      <button mat-fab color="">
+    <li class="nav-item ml-5 d-flex mr-5 d-sm-none">
+      <button (click)="onMenuClicked()" mat-fab color="">
         <mat-icon color="accent" class="">menu</mat-icon>
       </button>
     </li>

@@ -1,11 +1,10 @@
 <section class="my-5 d-flex flex-column">
-  <!-- *is loading-->
-  <app-loader *ngIf="isLoading && !isError"></app-loader>
-  <!-- *is error-->
-  <app-error *ngIf="isError" [message]="isError"></app-error>
-
   <h2 class="display-4 text-center text-secondary">User Details</h2>
-  <mat-icon class="mr-auto h1 mb-5" color="accent" routerLink="/"
+  <mat-icon
+    *ngIf="!isLoading"
+    class="mr-auto h1 mb-5"
+    color="accent"
+    routerLink="/"
     >arrow_back</mat-icon
   >
   <mat-card *ngIf="user && !isError">
@@ -18,9 +17,9 @@
       <mat-list-item role="listitem" class="lead text-success text-center"
         >ID : {{ user._id }}</mat-list-item
       >
-      <mat-list-item role="listitem"
-        >Email : {{ user.email | titlecase }}</mat-list-item
-      >
+      <mat-list-item role="listitem">
+        <h6 class="blo">Email : {{ user.email | titlecase }}</h6>
+      </mat-list-item>
 
       <mat-list-item role="listitem" class="text-muted"
         >Date : {{ user.createdAt | date: "short" }}</mat-list-item
@@ -31,6 +30,10 @@
       >
     </mat-list>
   </mat-card>
+  <!-- *is loading-->
+  <app-loader *ngIf="isLoading && !isError"></app-loader>
+  <!-- *is error-->
+  <app-error *ngIf="isError" [message]="isError"></app-error>
   <!-- * if no data in db-->
   <app-no-data *ngIf="!user && !isLoading"></app-no-data>
 </section>
