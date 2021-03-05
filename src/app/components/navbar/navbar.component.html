@@ -14,10 +14,10 @@
         mat-fab
         color=""
         routerLink="/"
-        routerLinkActive="mat-warn"
+        routerLinkActive="mat-primary"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <mat-icon color="primary">home</mat-icon>
+        <mat-icon color="accent">home</mat-icon>
       </button>
     </li>
     <li *ngIf="!isAuthNew" class="mx-3 mr-5 d-none d-sm-flex nav-item">
@@ -27,10 +27,10 @@
         mat-fab
         color=""
         routerLink="/login"
-        routerLinkActive="mat-warn"
+        routerLinkActive="mat-primary"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <mat-icon color="primary" size="large">person</mat-icon>
+        <mat-icon color="accent" size="large">person</mat-icon>
       </button>
     </li>
     <li *ngIf="isAuthNew" class="ml-5 mr-5 nav-item d-none d-sm-flex">
@@ -48,13 +48,13 @@
       <button
         matTooltip="Profile"
         matTooltipPosition="below"
-        routerLinkActive="mat-warn"
+        routerLinkActive="mat-primary"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLink="/profile"
         mat-fab
         color=""
       >
-        <mat-icon color="" size="large">switch_account</mat-icon>
+        <mat-icon color="accent" size="large">switch_account</mat-icon>
       </button>
     </li>
 

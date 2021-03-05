@@ -22,9 +22,17 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, data: { animation: 'HomePage' } },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'products/add', component: ProductsAddComponent },
-  { path: 'products/edit/:id', component: ProductsAddComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'products/add',
+    component: ProductsAddComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'products/edit/:id',
+    component: ProductsAddComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'products/:id', component: ProductDetailsComponent },
   {
     path: 'products',
@@ -36,11 +44,23 @@ const routes: Routes = [
     component: ReviewsComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'reviews/add', component: ReviewsAddComponent },
-  { path: 'reviews/edit/:id', component: ReviewsAddComponent },
+  {
+    path: 'reviews/add',
+    component: ReviewsAddComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'reviews/edit/:id',
+    component: ReviewsAddComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'reviews/:id', component: ReviewDetailsComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'users/edit/:id', component: UserEditComponent },
+  {
+    path: 'users/edit/:id',
+    component: UserEditComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'users/:id', component: UserDetailsComponent },
 
   { path: '**', component: NotFoundComponent },

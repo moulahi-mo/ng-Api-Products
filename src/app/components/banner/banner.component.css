@@ -6,3 +6,8 @@ header {
 h1 {
   text-shadow: 1px 1px 5px;
 }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}

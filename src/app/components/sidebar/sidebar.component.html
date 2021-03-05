@@ -12,18 +12,18 @@
     <mat-list-item
       *ngIf="isAuth"
       (click)="sidebar.close()"
-      routerLink="/logout"
-      role="listitem"
-    >
-      <div (click)="onLogout()">Logout</div>
-    </mat-list-item>
-    <mat-list-item
-      *ngIf="isAuth"
-      (click)="sidebar.close()"
       routerLink="/profile"
       role="listitem"
     >
       <div>Profile</div>
+    </mat-list-item>
+    <mat-list-item
+      *ngIf="isAuth"
+      (click)="sidebar.close()"
+      routerLink="/logout"
+      role="listitem"
+    >
+      <div (click)="onLogout()">Logout</div>
     </mat-list-item>
   </mat-nav-list>
 </section>
